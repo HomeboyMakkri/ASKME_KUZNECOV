@@ -1,0 +1,20 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+          <div class="col-9">
+              <div class = "d-flex flex-column gap-4">
+              {% include 'layouts/question.html' with question=item %}
+              {% include 'layouts/answers_in_one_question.html' %}
+                  <div>
+                      <div class="mb-2">
+                        <input type="inputAnswer" class="form-control" id="exampleFormControlInput1" style="height: 80px;"placeholder="Enter your answer here.. ">
+                      </div>
+                      <div>
+                          <button type="button" class=" btn btn-secondary btn-lg">Answer</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+{% endblock %}          
