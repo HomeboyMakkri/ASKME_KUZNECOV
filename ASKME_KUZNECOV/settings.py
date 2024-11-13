@@ -83,7 +83,7 @@ DATABASES = {
         'NAME': 'askmedb',
         'USER': 'myuser',
         'PASSWORD': 'mypassword',
-        'HOST': 'localhost',
+        'HOST': '172.17.0.3',
         'PORT': '5432',
     }
 }
