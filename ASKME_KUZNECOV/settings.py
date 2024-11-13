@@ -81,9 +81,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'askmedb',
-        'USER': 'postgres',
-        'PASSWORD': '123',
-        'HOST': '172.17.0.3',
+        'USER': 'myuser',
+        'PASSWORD': 'mypassword',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }

@@ -6,7 +6,12 @@
           <div class="col-9">
               <div class = "d-flex flex-column gap-4">
               {% include 'layouts/question.html' with question=item %}
-              {% include 'layouts/answers_in_one_question.html' %}
+                  <hr>
+                    {% for answer in answers %}
+                        {% include 'answer.html' %}
+                    {% endfor %}
+
+                  <hr>
                   <div>
                       <div class="mb-2">
                         <input type="inputAnswer" class="form-control" id="exampleFormControlInput1" style="height: 80px;"placeholder="Enter your answer here.. ">

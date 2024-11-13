@@ -28,7 +28,11 @@ class Command(BaseCommand):
                 except IntegrityError:
                     continue
 
-        tags = [Tag.objects.create(name=fake.word()) for _ in range(ratio)]
+        tags = []
+        for _ in range(ratio):
+            tag_name = fake.unique.word()
+            tag, created = Tag.objects.get_or_create(name=tag_name)
+            tags.append(tag)
 
         questions = []
         for _ in range(ratio * 10):
@@ -58,12 +62,5 @@ class Command(BaseCommand):
                 question_like = QuestionLike.objects.create(user=user, question=question)
                 question_likes.append(question_like)
 
-        answer_likes = []
-        for _ in range(ratio * 200):
-            user = random.choice(users)
-            answer = random.choice(answers)
-            if not AnswerLike.objects.filter(user=user, answer=answer).exists():
-                answer_like = AnswerLike.objects.create(user=user, answer=answer)
-                answer_likes.append(answer_like)
 
         self.stdout.write(self.style.SUCCESS(f'Successfully populated the database with a ratio of {ratio}'))
